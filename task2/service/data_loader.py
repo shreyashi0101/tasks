@@ -8,7 +8,7 @@ def load_csv_to_mongodb(csv_file):
     
     documents = []
     for _, row in df.iterrows():
-        documents.append(row.to_dict())
+        documents.append(list(row))
 
     drop_collection()
     insert_documents(documents)
