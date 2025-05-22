@@ -1,5 +1,5 @@
 import pandas as pd
-from db.mongo_operations import drop_collection, insert_documents, count_documents, fetch_all_documents
+from db.mongo_operations import  insert_documents, count_documents, fetch_all_documents
 from config import MONGO_COLLECTION_NAME
 
 def load_csv_to_mongodb(csv_file):
@@ -10,7 +10,6 @@ def load_csv_to_mongodb(csv_file):
     for _, row in df.iterrows():
         documents.append(list(row))
 
-    drop_collection()
     insert_documents(documents)
 
     print(f"\n{len(documents)} records inserted into MongoDB collection '{MONGO_COLLECTION_NAME}'.")
