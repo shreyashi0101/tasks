@@ -5,7 +5,6 @@ def create_table_from_df(table_name, df):
     conn = get_db_connection()
     cur = conn.cursor()
 
-    cur.execute(f"DROP TABLE IF EXISTS {table_name};")
 
     columns = ", ".join([f"{col.replace(' ', '_')} TEXT" for col in df.columns])
     create_stmt = f"CREATE TABLE {table_name} ({columns});"
