@@ -6,10 +6,6 @@ def get_collection():
     db = client[MONGO_DB_NAME]
     return db[MONGO_COLLECTION_NAME]
 
-def drop_collection():
-    collection = get_collection()
-    collection.drop()
-
 def insert_documents(documents):
     collection = get_collection()
     collection.insert_many(documents)
